@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+        
+        <script>
+            
+            //debugger //cria breakpoint
+            
+            var nome = prompt("Qual é o seu nome?");
+            alert("Bem-vinda\(o\), " + nome + "!");
+            
+            
+                console.log("oi");
+
+            var n1 = "5";
+            var n2 = 3;
+            
+            console.log(n1 + n2)
+            
+            
+            var maiorDeIdade = true;
+            var pi = 3.1416;
+            
+            console.log(typeof nome, typeof pi, typeof maiorDeIdade, typeof n1, typeof n2);
+            
+            
+            nota1 = prompt("nota 1:");
+            nota2 = prompt("nota 2:");
+            
+            var nota1Number = parseFloat(nota1);
+            var nota2Number = parseFloat(nota2); //parseFloat considera casas decimais
+            
+            var soma = nota1Number + nota2Number;
+            
+            console.log("a soma é: " + soma);
+            
+            
+            
+            var nota3 = 2;
+            var nota4 = 3;
+            alert("resultado é: " + (nota3 + nota4));
+            
+        </script>
+        
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        <h1>Olá, Mundo!</h1>
+	       
+            <button onclick="confirm('tem certeza?')">Confirma</button>
+            <button onclick="prompt('qual é o seu nome?')">Prompt</button>
+            <button onclick="alert('é isso mesmo?')">Alert</button>
+                
+	      </div>
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        <script>
+            alert("fim \"do\" documento");
+        </script>
+        
+    </body>
+</html>
