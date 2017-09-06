@@ -3,18 +3,17 @@ var peso = document.querySelector("#peso");
 
 var altura = document.querySelector("#altura");
 
-var pesoValue = parseFloat(peso);
 
-var alturaValue = parseFloat(altura);
+function calcularImc() {
+    
+    var pesoValue = parseFloat(peso.value);
 
-var alturaQuadrado = alturaValue ** 2;
+    var alturaValue = parseFloat(altura.value);
 
+    var alturaQuadrado = alturaValue ** 2;
 
-
-function calcularImc(pesoValue, alturaValue) {
-
-	var imc = peso / altura;
+	var imc = pesoValue / alturaQuadrado;
+    
+    console.log(imc);
 	return imc;
 };
-
-console.log(calcularImc(pesoValue, alturaValue));
