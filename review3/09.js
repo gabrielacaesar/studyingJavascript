@@ -3,6 +3,10 @@ var mais = document.querySelector("#btnMais");
 var numero = document.querySelector("#txt");
 
 
+menos.onclick = function() {
+    var numeroValue = parseFloat(numero.value) -1;
+    numero.value = numeroValue; 
+});
 
 mais.onclick = function() {
     var numeroValue = parseFloat(numero.value) +1;
