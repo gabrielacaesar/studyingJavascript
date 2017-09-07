@@ -10,6 +10,10 @@ clique.addEventListener("click", function(){
         
         multiplicacao = numeroValue * i;
         
+        if(i%10 == 0 && i != 0){
+            mostrarMensagem("<hr>");
+        }
+        
         mostrarMensagem(numeroValue + " * " + i + " = " + multiplicacao + "<br>");
     }
 });
