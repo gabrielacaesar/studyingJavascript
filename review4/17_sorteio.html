@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        <h1>Olá, Mundo!</h1>
+	        
+	      </div>
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        <script src="utils.js"></script>
+        
+        <script>
+        
+        var imagens = ["capas-b-022.jpg", "capas-home-slider-1.jpg", "capas-javascript.jpg", "capas-slide_02.jpg"];
+            
+        var numeroSorteado = sortearNumero(imagens.length);
+            
+        imagemSorteada = imagens[numeroSorteado];
+            
+            console.log(imagemSorteada);
+            
+            
+            
+        var banner = document.querySelector(".jumbotron");
+        
+        banner.style.backgroundImage = "url(imagens/" + imagemSorteada + ")";
+            
+            //no JS os itens do CSS ficam com camel case e não com hífen
+            
+            
+            // exercício: mostrar anos bissextos >> anos com eleições presidenciais
+            // 
+        
+        </script>
+        
+    </body>
+</html>
