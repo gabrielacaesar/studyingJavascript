@@ -31,6 +31,22 @@ function sortearNumero(n){
     return sorteado;
 }
 
+
+//função CALCULAR IMC //
+
+var peso = document.querySelectorAll(".info-peso");
+var altura = document.querySelectorAll(".info-altura");
+
+var pesoFloat = parseFloat(peso[0].textContent);
+var alturaFloat = parseFloat(altura[0].textContent);
+
+function calcularImc(pesoFloat, alturaFloat){
+    var imc = pesoFloat / (alturaFloat * alturaFloat);
+    return imc;
+}
+
+// LOOP para calcular o IMC de geral
+
 var linhas = document.querySelectorAll("table tbody tr");
 console.log(linhas);
 
@@ -47,8 +63,10 @@ while(linhas[x]){
     var textlinhaAltura = linhaAltura.textContent;
     console.log(textlinhaAltura);
     
+    var imc = calcularImc(textlinhaPeso, textlinhaAltura);
+    
+    linhas[x].querySelector(".info-imc").textContent = imc.toFixed(2);
+    
     x++;
      
 }
-
-
