@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        <h1>Olá, Mundo!</h1>
+                
+            <table class="table">
+  <thead>
+    <tr>
+      <th><input type="checkbox" id="mestre"></th>
+      <th><label for="mestre" id="labelMestre">Marcar todos</label></th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox" class="chk"></td>
+      <td>Javascript</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" class="chk"></td>
+      <td>HTML</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" class="chk"></td>
+      <td>CSS</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" class="chk"></td>
+      <td>Canvas</td>
+    </tr>
+  </tbody>
+</table>
+	        
+	      </div>
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        <script>
+        
+            var marcarTodos = document.querySelector("#labelMestre");
+            var mestre = document.querySelector("#mestre");
+            var chk = document.querySelectorAll(".chk");
+            
+
+            
+            mestre.addEventListener("change", function clique(){
+                for(var i = 0; i < chk.length; i++){
+                    chk[i].checked = mestre.checked; //poderíamos substituir mestre por THIS
+                }; 
+            });
+            
+            
+            
+            
+        
+        
+        </script>
+        
+        
+    </body>
+</html>
