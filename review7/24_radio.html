@@ -81,17 +81,13 @@
 
         var resultado = document.querySelector("#resultado");
         
-        var colorido = resultado.style.background;
-        
         function pintar(cor){
-            inputs.checked = colorido;
-            colorido = "red";
+            resultado.style.background = cor;
         };
             
         while(inputs[x]){
             inputs[x].addEventListener("change", function(){
                 var cor = this.value;
-                resultado = cor;
                 pintar(cor);
             })
             x++;
