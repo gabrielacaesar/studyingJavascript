@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+        <style type="text/css">
+		
+		body{
+			margin-bottom: 500px;
+		}
+        	#resultado{
+        		position: absolute;
+                top: 50px;
+                left: 15px;
+                width: 300px;
+                height: 200px;
+                border: 2px solid #f00;
+                background: #ccc;
+                transition: all 1s;
+        	}
+
+        	.container{
+        		position: relative;
+        	}
+        </style>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        	<h1>Chekbox</h1>
+
+	        	<form class="form-inline">
+				  	<div class="form-group">	
+				  		    
+				   		<select name="ddlAcoes" id="ddlAcoes">
+                <option value="0">Selecione ... </option>
+                <option value="1">Mostrar </option>
+                <option value="2">Ocultar </option>
+                <option value="3">Borda </option>
+                <option value="4">Cor </option>
+                <option value="5">Topo </option>
+                <option value="6">Esquerda </option>
+                <option value="7">Altura </option>
+                <option value="8">Largura </option>
+                <option value="9">Zerar </option>
+            </select>
+
+
+                	</div>
+                
+				  
+				</form>
+
+				
+
+
+
+	        
+        	</div>	
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        
+        <script>
+        
+            
+            var select = document.querySelector("#ddlAcoes");
+            
+            select.addEventListener("change", animar);
+            
+            
+            function animar(){
+                console.log(this);// refere-se à variável SELECT
+                console.log(this.value);
+                
+                var retangulo = document.querySelector("#resultado");
+                
+                var n = parseInt(this.value) //convertemos para número senão não funciona
+                
+                switch (n){
+                    case 1:
+                        retangulo.style.display = "block";
+                        break;
+                    case 2:
+                        retangulo.style.display = "none";
+                        break;
+                    case 3:
+                        retangulo.style.border = "5px dotted red";
+                        break;
+                    case 4: 
+                        retangulo.style.background = "purple";
+                        break;
+                    case 5:
+                        retangulo.style.borderTop = "10px dotted red";
+                        break;
+                    case 6:
+                        retangulo.style.left = "-300px";
+                        break;
+                    case 7:
+                        retangulo.style.height = "900px";
+                        break;
+                    case 8:
+                        retangulo.style.width = "900px";
+                        break;
+                    case 9:
+                        retangulo.removeAttribute("style");
+                        break;
+                };
+                
+            };
+            
+        </script>
+        
+        
+    </body>
+</html>
