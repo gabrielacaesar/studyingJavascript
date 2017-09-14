@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+        <style type="text/css">
+        	#resultado span{
+        		display: inline-block;
+        		padding: 15px;
+        	}
+        </style>     
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        	<h1>Chekbox</h1>
+
+	        	<form class="form-inline">
+				  	<div class="form-group">	
+				  		    
+				   		<label><input type="radio" value="red" name="cor">Vermelho </label>
+				   		</div>
+                	<div class="form-group">
+            <label><input type="radio" value="green" name="cor">Verde </label>
+            </div>
+                	<div class="form-group">
+            <label><input type="radio" value="blue" name="cor">Azul </label>
+            </div>
+                	<div class="form-group">
+            <label><input type="radio" value="#6712bc" name="cor">surpresa </label>
+            </div>
+                	<div class="form-group">
+            <label><input type="radio" value="#814910" name="cor">diarreia </label>
+
+                	</div>
+                
+				  
+				</form>
+
+				
+
+
+
+	        
+        	</div>	
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        <script>
+        
+        var inputs = document.querySelectorAll("input");
+            
+        var x = 0;  
+
+        var resultado = document.querySelector("#resultado");
+        
+        var colorido = resultado.style.background;
+        
+        function pintar(cor){
+            inputs.checked = colorido;
+            colorido = "red";
+        };
+            
+        while(inputs[x]){
+            inputs[x].addEventListener("change", function(){
+                var cor = this.value;
+                resultado = cor;
+                pintar(cor);
+            })
+            x++;
+        };
+        
+        
+            
+        
+        </script>
+        
+    </body>
+</html>
