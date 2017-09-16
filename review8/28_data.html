@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        <h1>Olá, Mundo!</h1>
+	        
+	      </div>
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        
+        
+        
+        
+        
+        <script>
+            //UTILS//
+            
+        function calcularMedia(n1, n2, n3){
+    var media = (n1 + n2 + n3) / 3;    
+        return media;    
+    }
+
+
+    function mostrarMensagem(str){     
+        var resultado = document.querySelector('#resultado');
+
+        //resultado.innerHTML = str;
+
+        resultado.innerHTML = resultado.innerHTML + str;
+        //resultado.innerHTML += str;
+    }
+
+
+    function limparMensagem(){
+        var resultado = document.querySelector("#resultado");
+
+        resultado.innerHTML = '';
+    }
+
+    function sortearNumero(n){
+
+        if(!n || typeof n != 'number'){
+            throw new Error('função sortearNumero precisa de um parametro que seja número')
+        }
+        var sorteado = Math.random(); //retorna de 0 a 0.99999
+        sorteado = sorteado * n;
+        sorteado = Math.floor(sorteado); //math.floor arredonda para baixo
+        return sorteado;
+
+    }
+
+
+    function calcularImc(peso, altura){    
+        return peso / (altura * altura);
+
+    }
+
+    function $(seletor){
+        return document.querySelector(seletor);
+    }
+
+    function $$(seletor){
+        return document.querySelectorAll(seletor);
+    }
+
+    
+        </script>
+        
+        <script>
+            var hoje = new Date();
+            console.log(hoje);
+            
+            var dia = hoje.getDate();
+            console.log(dia);
+            
+            var mes = hoje.getMonth();
+            console.log(mes); //aparece 8 porque temos o mês zero
+            
+            var diaDaSemanda = hoje.getDay();
+            console.log(diaDaSemanda);
+            
+            var ano = hoje.getFullYear();
+            console.log(ano);
+            
+            var meses = ["jan", "fev", "mar", "abr", "mai",
+                        "jun", "jul", "ago", "set", "out",
+                        "nov", "dez"];
+            
+            mostrarMensagem("hoje é " + dia + "/" + meses[mes] + "/" + ano + ".");
+            
+        
+            var hora = hoje.getHours();
+            var minuto = hoje.getMinutes();
+            var segundo = hoje.getSeconds();
+            
+            var horaAtual = hora + ":" + minuto + ":" + segundo;
+            
+            function mostrarHora(){
+                var hoje = new Date(); //aqui as variáveis precisam ser locais
+                var hora = hoje.getHours(); //caso contrário, pegaríamos as variáveis
+                var minuto = hoje.getMinutes(); //apenas na hora de abrir a página
+                var segundo = hoje.getSeconds();
+                
+                hora = (hora < 10) ? "0" + hora : hora;
+                minuto = (minuto < 10) ? "0" + minuto : minuto;
+                segundo = (segundo < 10) ? "0" + segundo : segundo;
+            
+                var horaAtual = hora + ":" + minuto + ":" + segundo;
+                mostrarMensagem("<br> oi, quer saber a hora, sr? " + horaAtual);
+            };
+            
+            setInterval(mostrarHora, 1000);
+            
+            
+            
+        
+        </script>
+    </body>
+</html>
