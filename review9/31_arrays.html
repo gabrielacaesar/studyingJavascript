@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        <h1>Olá, Mundo!</h1>
+	        
+	      </div>
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        <script>
+        ///aqui é o UTILS
+            
+    function calcularMedia(n1, n2, n3){
+        var media = (n1 + n2 + n3) / 3;    
+        return media;    
+    }
+
+
+    function mostrarMensagem(str){     
+        var resultado = document.querySelector('#resultado');
+
+        //resultado.innerHTML = str;
+
+        resultado.innerHTML = resultado.innerHTML + str;
+        //resultado.innerHTML += str;
+    }
+
+
+    function limparMensagem(){
+        var resultado = document.querySelector("#resultado");
+
+        resultado.innerHTML = '';
+    }
+
+    function sortearNumero(n){
+
+        if(!n || typeof n != 'number'){
+            throw new Error('função sortearNumero precisa de um parametro que seja número')
+        }
+        var sorteado = Math.random(); //retorna de 0 a 0.99999
+        sorteado = sorteado * n;
+        sorteado = Math.floor(sorteado); //math.floor arredonda para baixo
+        return sorteado;
+
+    }
+
+
+    function calcularImc(peso, altura){    
+        return peso / (altura * altura);
+
+    }
+
+    function $(seletor){
+        return document.querySelector(seletor);
+    }
+
+    function $$(seletor){
+        return document.querySelectorAll(seletor);
+    }
+
+
+    function validarEmail(email){
+        //return (email.indexOf('@') >= 0);
+        var padraoEmail = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/;
+
+        if(!email || typeof email !== 'string'){
+            throw new Error('funcao validarEmail precisa de um parametro string');
+
+        }
+
+        return padraoEmail.test(email);
+    }
+
+    function validarCPF(cpf){
+
+        var padraoCPF = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/;
+
+        return padraoCPF.test(cpf);   
+
+    }
+            
+        </script>
+        
+        
+        <script>
+            
+            var frutas = ["uva", "maça", "pera"];
+            
+            frutas.push("banana", "goiaba"); //insere no final
+            mostrarMensagem(frutas + "<br>");
+            
+            frutas.unshift("morango", "laranja"); //insere no inicio
+            mostrarMensagem("<b>Frutas:</b>" + frutas);
+            
+            var retiraFinal = frutas.pop(); //apaga do final
+            mostrarMensagem("<br><b>frutas:</b>" + frutas + "<br>");
+            mostrarMensagem("<b>removi com pop():</b>" + retiraFinal + "<br>");
+            
+            var retiraInicio = frutas.shift(); //apaga do inicio
+            mostrarMensagem("<b>frutas:</b> " + frutas + "<br>");
+            mostrarMensagem("<b>removi com shift():</b>" + retiraInicio + "<br>");
+            
+            var subarray = frutas.slice(2, 4); //começa a incluir a partir do primeiro parâmetro (2) e para de incluir logo antes do segundo parâmetro (4);
+            mostrarMensagem("<b>frutas:</b>" + frutas.toString() + "<br>"); //a variável não é mais um array mas sim uma string;
+            mostrarMensagem("subarray: " + subarray + "<br>");
+            mostrarMensagem("<b>frutas: </b>" + frutas.toString() + "<br>");
+            
+            var frutas2 = ["laranja", "melao", "melancia", "pera", "kiwi"];
+            
+            var frutas3 = frutas.concat(frutas2);
+            
+            mostrarMensagem("<b>Frutas com concat: </b>" + frutas.toString() + "<br>");
+            
+            mostrarMensagem("<b>Frutas com concat: </b>" + frutas2.toString() + "<br>");
+            
+            mostrarMensagem("<b>Frutas com concat: </b>" + frutas3.toString() + "<br>");
+            
+            var frutas4 = frutas3.splice(2, 3, "tomate", "alface"); //o primeiro parâmetro define quando eu começa a trabalhar; o segundo parâmetro indica quantos itens eu quero remover; por fim, vc identifica quais itens vc quer inserir no lugar dos itens excluidos
+            //splice retorna os itens removidos
+            mostrarMensagem("<b>frutas4: </b>" + frutas4.toString() + "<br>");
+            mostrarMensagem("<b>frutas3: </b>" + frutas3.toString() + "<br>");
+            
+            
+            var frutasStr = frutas3.join("; "); //mudamos o separador
+            mostrarMensagem("<br><b><i>mudamos o nosso separador.</i></b><br> olha só: " + frutasStr);
+            
+            var frutas5 = "coco/jaboticaba/abacate/amora"; //nós escolhemos o separador
+            
+            var frutas6 = frutas5.split("/"); //e indicamos aqui embaixo
+            
+            mostrarMensagem("<br>" + typeof frutas6); //diz que é um objeto
+            
+            mostrarMensagem("<br>" + frutas6.toString()); //mostra array transformado em string
+            
+            
+        
+        </script>
+        
+    </body>
+</html>
