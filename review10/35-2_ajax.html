@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impacta Javascript</title>
+        <meta charset="utf-8">
+
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="css/javascriptImpacta.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="container">	        
+		        
+		    </div>
+	    </nav>
+
+
+        <div class="jumbotron text-center">
+	      <div class="container">
+	        <h1>Bem Vindo ao Treinamento de Javascript da Impacta Tecnologia</h1>
+	        
+	        <p><a class="btn btn-primary btn-lg jumbotron-btn" href="http://www.impacta.com.br/curso/JavaScript.php" role="button" target="_blank">Saiba mais</a></p>
+	      </div>
+	    </div>
+
+	    <section>
+        	<div class="container">
+	        <h1>Olá, Mundo!</h1>
+	        
+	      </div>
+        </section>
+
+        <section>
+        	<div class="container">
+	        
+	        <h2>Resultados</h2>
+	        <div id="resultado"></div>
+	        
+	      </div>
+        </section>
+        
+        
+        
+        
+        <script>
+        //UTILSSSSSSSSSSSSSSSS
+        
+        function calcularMedia(n1, n2, n3){
+            var media = (n1 + n2 + n3) / 3;    
+            return media;    
+        }
+
+
+        function mostrarMensagem(str){     
+            var resultado = document.querySelector('#resultado');
+
+            //resultado.innerHTML = str;
+
+            resultado.innerHTML = resultado.innerHTML + str;
+            //resultado.innerHTML += str;
+        }
+
+
+        function limparMensagem(){
+            var resultado = document.querySelector("#resultado");
+
+            resultado.innerHTML = '';
+        }
+
+        function sortearNumero(n){
+
+            if(!n || typeof n != 'number'){
+                throw new Error('função sortearNumero precisa de um parametro que seja número')
+            }
+            var sorteado = Math.random(); //retorna de 0 a 0.99999
+            sorteado = sorteado * n;
+            sorteado = Math.floor(sorteado); //math.floor arredonda para baixo
+            return sorteado;
+
+        }
+
+
+        function calcularImc(peso, altura){    
+            return peso / (altura * altura);
+
+        }
+
+        function $(seletor){
+            return document.querySelector(seletor);
+        }
+
+        function $$(seletor){
+            return document.querySelectorAll(seletor);
+        }
+
+
+        function validarEmail(email){
+            //return (email.indexOf('@') >= 0);
+            var padraoEmail = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/;
+
+            if(!email || typeof email !== 'string'){
+                throw new Error('funcao validarEmail precisa de um parametro string');
+
+            }
+
+            return padraoEmail.test(email);
+        }
+
+        function validarCPF(cpf){
+
+            var padraoCPF = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/;
+
+            return padraoCPF.test(cpf);   
+
+        }
+
+
+        String.prototype.indexOfAll = function(str){
+
+            var arr = [];
+
+            var _this = this.valueOf();
+
+            var posicao = 0;
+
+            while(_this.indexOf(str, posicao) >= 0){
+
+                posicao = _this.indexOf(str, posicao);        
+
+                arr.push(posicao);  
+
+                posicao++;
+
+            }    
+
+            return arr;    
+
+        }
+        
+        
+        </script>
+        
+        
+        
+        
+        <script>
+        
+        
+        //instanciar um objeto do tipo XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+            
+            xhr.open("GET", "filiadosRedeSP.json");
+            
+            xhr.onreadystatechange = mostrarFiliados;
+            
+            xhr.send(null);
+            
+            function mostrarFiliados(){
+                console.log(xhr);
+                if(xhr.readyState === 4){
+                    console.log("dados recebidos");
+                    
+                    var dados = xhr.responseText;
+                    console.log(dados);
+                    console.log(typeof dados);
+                    
+                    dados = JSON.parse(dados);
+                    
+                    var str = "";
+                    
+                    for(var i = 0; i < dados.length; i++){
+                        str = str + "<br>Filiado: " + dados[i]["NOME DO FILIADO"];
+                        str = str + "<br>Data de filiação: " + dados[i]["DATA DA FILIACAO"];
+                        str = str + "<hr>";
+                    }
+                    
+                    mostrarMensagem(str);
+                }
+            };
+        
+        
+        </script>
+        
+        
+        
+        
+    </body>
+</html>
